@@ -8,6 +8,8 @@ L'objectif est de préparer notre petite application de todolist (quelle idée o
 
 Il s'agit maintenant de refactoriser notre début d'application en une base plus saine, capable d'évoluer plus facilement et rapidement.
 
+Vous trouverez une introduction plus détaillée en entête du fichier `js/main.js`.
 
+La démarche globale est de démontrer les bénéfices et l'importance du refactoring itératif (et léger).
 
 
