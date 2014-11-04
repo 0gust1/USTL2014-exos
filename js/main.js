@@ -1,4 +1,5 @@
 /**
+ *
  * Ce qui ne vas pas :
  *
  * - pas de modèle de données coté JS
@@ -11,6 +12,11 @@
  * - Maintenabilité réduite (la base de code va grossire "salement")
  * - Difficile de tester notre application correctement
  * - Grande dépendance à la librairie utilisée pour le DOM
+ *
+ *
+ * Que proposez vous pour rémedier aux problèmes constatés plus haut ?
+ * Par quoi commenceriez vous ?
+ * Vous avez 2h :)
  *
  */
 
