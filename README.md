@@ -8,7 +8,7 @@ C'est encore perfectible, mais notre application peut déjà mieux grandir.
 
 ## Comment aller plus loin :
 
-Notre application dépend beaucoup de la librairie de manipulation du DOM. Le code métier (la manipulation du modèle de données) est encore "à coté"" de ce qui concerne la page en elle même.
+Notre application dépend encore de fçon importante de la librairie de manipulation du DOM. Le code métier (la manipulation du modèle de données) est encore "à coté"" de ce qui concerne la page en elle même.
 
 Celà rend le code moins modulaire et moins facilement testable. Si on décide de faire évoluer le système (notamment la partie DOM), ce sera plus compliqué.
 
