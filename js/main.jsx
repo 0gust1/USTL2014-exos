@@ -25,6 +25,11 @@ var TodoApp = React.createClass({
         newState.tasks[index].done = !newState.tasks[index].done;
         this.setState(newState);
     },
+    deleteTask:function(index){
+        var newState = this.state;
+        newState.tasks.splice(index, 1);
+        this.setState(newState);
+    },
     getInitialState: function() {
     return {name:"nom de la liste",
       tasks:[
@@ -45,7 +50,7 @@ var TodoApp = React.createClass({
 
         <TaskEntry handleChange={this.addTask}/>
 
-        <TaskList tasks={this.state.tasks} onCheck={this.toggleTask}/>
+        <TaskList tasks={this.state.tasks} onCheck={this.toggleTask} onSuppress={this.deleteTask}/>
 
       </section>
     )
@@ -87,13 +92,14 @@ var TaskEntry = React.createClass({
 
 var TaskList = React.createClass({
   getRemainingTasks:function(){
-    return this.props.tasks.reduce(function(previous,task,index,array){return task.done?previous:previous+1},0);
+    return this.props.tasks.reduce(function(previous, task){return task.done?previous:previous+1},0);
   },
   render: function() {
-    var handler = this.props.onCheck;
+    var handlerCheck = this.props.onCheck;
+    var handlerSupp = this.props.onSuppress;
     var tasks = this.props.tasks.map(function(task, index){
       return(
-          <Task task={task} onCheck={handler} index={index} >{task.content}</Task>
+          <Task task={task} onCheck={handlerCheck} onSuppress={handlerSupp} index={index} >{task.content}</Task>
         );
     });
 
@@ -112,6 +118,9 @@ var Task = React.createClass({
   handleChange: function(e){
     this.props.onCheck(this.props.index);
   },
+  handleSuppress: function(e){
+    this.props.onSuppress(this.props.index);
+  },
   render: function() {
      var cx = React.addons.classSet;
      var classes = cx({
@@ -122,7 +131,7 @@ var Task = React.createClass({
       <div className={classes}>
           <input type="checkbox" className="done-chkbx" checked={this.props.task.done} onChange={this.handleChange}/>
           <div className='item-content'>{this.props.children}</div>
-          <button type="button" className="suppress-btn">X</button>
+          <button type="button" className="suppress-btn" onClick={this.handleSuppress} >X</button>
       </div>
     )
   }
